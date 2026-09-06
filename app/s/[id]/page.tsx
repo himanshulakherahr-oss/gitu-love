@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabaseClient";
+import MusicButton from "@/components/MusicButton";
 
 
 export default async function SurprisePage({
@@ -101,7 +102,9 @@ export default async function SurprisePage({
                 <span className="text-[#e85d75]">
                   {from} ❤️
                 </span>
+              
               </p>
+              <MusicButton />
               <div className="mt-8">
   <a
     href={`https://wa.me/?text=${encodeURIComponent(
