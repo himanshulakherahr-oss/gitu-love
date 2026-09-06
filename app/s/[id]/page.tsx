@@ -1,6 +1,6 @@
 import { supabase } from "@/lib/supabaseClient";
 import MusicButton from "@/components/MusicButton";
-
+import PhotoSlideshow from "@/components/PhotoSlideshow";
 
 export default async function SurprisePage({
   params,
@@ -68,33 +68,7 @@ export default async function SurprisePage({
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-3 gap-3">
-               {photos.length > 0 ? (
-  photos.map((photo: string, index: number) => (
-    <div
-  key={index}
-  className="overflow-hidden rounded-3xl bg-white shadow-md"
->
-  <a
-    href={photo}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="block"
-  >
-    <img
-      src={photo}
-      alt={`Memory ${index + 1}`}
-      className="aspect-square w-full object-cover transition duration-500 hover:scale-105"
-    />
-  </a>
-</div>
-  ))
-) : (
-  <div className="col-span-3 flex aspect-video items-center justify-center rounded-3xl bg-pink-100 text-5xl">
-    ❤️
-  </div>
-)}
-              </div>
+              <PhotoSlideshow photos={photos} />
 
               <p className="mt-10 text-lg font-semibold">
                 With love,
