@@ -31,6 +31,13 @@ export default async function SurprisePage({
   const shareUrl = `https://gitu-love.vercel.app/s/${id}`;
   return (
     <main className="min-h-screen bg-[#fffaf7] text-[#241b1d]">
+      <div className="pointer-events-none fixed inset-0 overflow-hidden">
+  <span className="floating-heart left-[10%]">❤️</span>
+  <span className="floating-heart left-[30%] [animation-delay:2s]">💕</span>
+  <span className="floating-heart left-[50%] [animation-delay:4s]">❤️</span>
+  <span className="floating-heart left-[70%] [animation-delay:1s]">💗</span>
+  <span className="floating-heart left-[90%] [animation-delay:3s]">💖</span>
+</div>
       <section className="flex min-h-screen items-center justify-center px-6 py-12">
         <div className="w-full max-w-3xl">
           <div className="suprise-cardrounded-[40px] bg-white p-5 shadow-2xl sm:p-8"
