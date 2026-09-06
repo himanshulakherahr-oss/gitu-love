@@ -28,7 +28,7 @@ export default async function SurprisePage({
   const from = surprise.from_name;
   const message = surprise.message;
   const photos = surprise.photos || [];
-  const shareUrl = `http://localhost:3000/s/${id}`;
+  const shareUrl = `https://gitu-love.vercel.app/s/${id}`;
   return (
     <main className="min-h-screen bg-[#fffaf7] text-[#241b1d]">
       <section className="flex min-h-screen items-center justify-center px-6 py-12">
@@ -45,6 +45,11 @@ export default async function SurprisePage({
                 A little surprise for you
               </p>
 
+              <details className="mt-8">
+  <summary className="mx-auto w-fit cursor-pointer rounded-full bg-[#241b1d] px-7 py-4 font-semibold text-white shadow-lg transition hover:scale-105 hover:bg-[#e85d75]">
+    Open your surprise ❤️
+  </summary>
+              <div className="surprise-content">
               <h1 className="mt-4 text-4xl font-bold sm:text-6xl">
                 Dear {name},
               </h1>
@@ -101,8 +106,10 @@ export default async function SurprisePage({
   </a>
 </div>
 
-            </div>
-         </div>
+          </div>
+           </details>
+          </div>
+          </div>
         </div>
       </section>
     </main>
