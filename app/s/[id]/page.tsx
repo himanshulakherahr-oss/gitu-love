@@ -29,7 +29,26 @@ export default async function SurprisePage({
   const name = surprise.name;
   const from = surprise.from_name;
   const message = surprise.message;
-  const photos = surprise.photos || [];
+  const photoPaths = surprise.photos || [];
+
+const photos = await Promise.all(
+  photoPaths.map(async (path: string) => {
+    const { data, error } = await adminSupabase.storage
+      .from("photos")
+      .createSignedUrl(path, 60 * 60);
+
+    if (error) {
+      console.error("Photo signed URL error:", error);
+      return null;
+    }
+
+    return data.signedUrl;
+  })
+);
+
+const validPhotos = photos.filter(
+  (photo): photo is string => Boolean(photo)
+);
   
 
 const theme = String(surprise.theme || "romantic");
@@ -163,7 +182,7 @@ const shareUrl = `https://gitu-love.vercel.app/s/${id}`;
     ]}
   />
 )}
-<PhotoSlideshow photos={photos} />
+<PhotoSlideshow photos={validPhotos} />
 
 <p className="mt-10 text-lg font-semibold">
 
