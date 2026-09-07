@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabaseClient";
+import { adminSupabase } from "@/lib/adminSupabase";
 import MusicButton from "@/components/MusicButton";
 import PhotoSlideshow from "@/components/PhotoSlideshow";
 
@@ -9,7 +9,7 @@ export default async function SurprisePage({
 }) {
   const { id } = await params;
 
-  const { data: surprise, error } = await supabase
+  const { data: surprise, error } = await adminSupabase
     .from("surprises")
     .select("*")
     .eq("id", id)
