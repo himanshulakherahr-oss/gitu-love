@@ -6,6 +6,17 @@ export default function CreatePage() {
   const [name, setName] = useState("");
   const [from, setFrom] = useState("");
   const [message, setMessage] = useState("");
+  const [loveDate, setLoveDate] = useState("");
+  const [firstMetDate, setFirstMetDate] = useState("");
+const [firstMetText, setFirstMetText] = useState("");
+const [specialMomentText, setSpecialMomentText] = useState("");
+const [secretMessage, setSecretMessage] = useState("");
+const [quizQ1, setQuizQ1] = useState("");
+const [quizA1, setQuizA1] = useState("");
+const [quizQ2, setQuizQ2] = useState("");
+const [quizA2, setQuizA2] = useState("");
+const [quizQ3, setQuizQ3] = useState("");
+const [quizA3, setQuizA3] = useState("");
   const [theme, setTheme] = useState("romantic");
   const [photos, setPhotos] = useState<string[]>([]);
   const [photoFiles, setPhotoFiles] = useState<File[]>([]);
@@ -129,12 +140,153 @@ export default function CreatePage() {
               </div>
 
               <textarea
+              
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Write your message here..."
                 rows={7}
                 className="mt-10 w-full resize-none rounded-2xl border border-black/10 bg-[#fffaf7] px-5 py-4 outline-none focus:border-[#e85d75]"
               />
+              <div className="mt-6">
+  <label className="mb-3 block text-sm font-semibold">
+    Our special date ❤️
+  </label>
+
+  <input
+    type="date"
+    value={loveDate}
+    onChange={(e) => setLoveDate(e.target.value)}
+    className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+  />
+</div>
+<div className="mt-6">
+  <label className="mb-3 block text-sm font-semibold">
+    When did you first meet? 💕
+  </label>
+
+  <input
+    type="date"
+    value={firstMetDate}
+    onChange={(e) => setFirstMetDate(e.target.value)}
+    className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+  />
+</div>
+
+<div className="mt-6">
+  <label className="mb-3 block text-sm font-semibold">
+    First meeting memory ✨
+  </label>
+
+  <input
+    type="text"
+    value={firstMetText}
+    onChange={(e) => setFirstMetText(e.target.value)}
+    placeholder="e.g. The day we first met ❤️"
+    className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+  />
+</div>
+
+<div className="mt-6">
+  <label className="mb-3 block text-sm font-semibold">
+    Special moment 💖
+  </label>
+
+  <input
+    type="text"
+    value={specialMomentText}
+    onChange={(e) => setSpecialMomentText(e.target.value)}
+    placeholder="e.g. Our most beautiful memory"
+    className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+  />
+</div>
+<div className="mt-6">
+  <label className="mb-3 block text-sm font-semibold">
+    Secret message 🤫❤️
+  </label>
+
+  <textarea
+    value={secretMessage}
+    onChange={(e) => setSecretMessage(e.target.value)}
+    placeholder="Write something only they should discover..."
+    rows={4}
+    className="w-full resize-none rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none focus:border-[#e85d75]"
+  />
+</div>
+<div className="mt-8 rounded-3xl bg-white/60 p-6">
+  <h3 className="text-xl font-bold">Love Quiz ❤️</h3>
+
+  <div className="mt-5">
+    <label className="mb-2 block text-sm font-semibold">
+      Question 1
+    </label>
+    <input
+      type="text"
+      value={quizQ1}
+      onChange={(e) => setQuizQ1(e.target.value)}
+      placeholder="e.g. Where did we first meet?"
+      className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+    />
+
+    <label className="mb-2 mt-4 block text-sm font-semibold">
+      Answer 1
+    </label>
+    <input
+      type="text"
+      value={quizA1}
+      onChange={(e) => setQuizA1(e.target.value)}
+      placeholder="Correct answer"
+      className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+    />
+  </div>
+
+  <div className="mt-6">
+    <label className="mb-2 block text-sm font-semibold">
+      Question 2
+    </label>
+    <input
+      type="text"
+      value={quizQ2}
+      onChange={(e) => setQuizQ2(e.target.value)}
+      placeholder="e.g. What is my favourite memory?"
+      className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+    />
+
+    <label className="mb-2 mt-4 block text-sm font-semibold">
+      Answer 2
+    </label>
+    <input
+      type="text"
+      value={quizA2}
+      onChange={(e) => setQuizA2(e.target.value)}
+      placeholder="Correct answer"
+      className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+    />
+  </div>
+
+  <div className="mt-6">
+    <label className="mb-2 block text-sm font-semibold">
+      Question 3
+    </label>
+    <input
+      type="text"
+      value={quizQ3}
+      onChange={(e) => setQuizQ3(e.target.value)}
+      placeholder="e.g. What do I call you?"
+      className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+    />
+
+    <label className="mb-2 mt-4 block text-sm font-semibold">
+      Answer 3
+    </label>
+    <input
+      type="text"
+      value={quizA3}
+      onChange={(e) => setQuizA3(e.target.value)}
+      placeholder="Correct answer"
+      className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+    />
+  </div>
+</div>
 <div className="mt-6">
   <label className="mb-3 block text-sm font-semibold">
     Choose a theme ❤️
@@ -336,6 +488,17 @@ export default function CreatePage() {
       message,
       photos: photoUrls,
       theme,
+      love_date: loveDate,
+      first_met_date: firstMetDate,
+first_met_text: firstMetText,
+special_moment_text: specialMomentText,
+secret_message: secretMessage,
+quiz_q1: quizQ1,
+quiz_a1: quizA1,
+quiz_q2: quizQ2,
+quiz_a2: quizA2,
+quiz_q3: quizQ3,
+quiz_a3: quizA3,
     });
 
   if (error) {

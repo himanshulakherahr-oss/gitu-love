@@ -1,5 +1,6 @@
 import { adminSupabase } from "@/lib/adminSupabase";
 import MusicButton from "@/components/MusicButton";
+import LoveQuiz from "@/app/components/LoveQuiz";
 import PhotoSlideshow from "@/components/PhotoSlideshow";
 
 export default async function SurprisePage({
@@ -32,7 +33,17 @@ export default async function SurprisePage({
   
 
 const theme = String(surprise.theme || "romantic");
-
+const loveDate = surprise.love_date;
+const firstMetDate = surprise.first_met_date;
+const firstMetText = surprise.first_met_text;
+const specialMomentText = surprise.special_moment_text;
+const secretMessage = surprise.secret_message;
+const quizQ1 = surprise.quiz_q1;
+const quizA1 = surprise.quiz_a1;
+const quizQ2 = surprise.quiz_q2;
+const quizA2 = surprise.quiz_a2;
+const quizQ3 = surprise.quiz_q3;
+const quizA3 = surprise.quiz_a3;
 let themeStyles = "from-[#fff0f3] to-[#fff3e8] text-[#241b1d]";
 
 if (theme === "dark") {
@@ -80,14 +91,83 @@ const shareUrl = `https://gitu-love.vercel.app/s/${id}`;
               <h1 className="mt-4 text-4xl font-bold sm:text-6xl">
                 Dear {name},
               </h1>
+              {(firstMetDate || firstMetText || specialMomentText) && (
+  <div className="mt-8 rounded-3xl bg-white/70 p-6 text-left shadow-sm">
+    <h2 className="text-2xl font-bold">Our Story ❤️</h2>
 
+    {firstMetDate && (
+      <div className="mt-5">
+        <p className="text-sm font-semibold opacity-60">🌸 First Met</p>
+        <p className="mt-1 font-medium">
+          {new Date(firstMetDate).toLocaleDateString("en-IN")}
+        </p>
+      </div>
+    )}
+
+    {firstMetText && (
+      <div className="mt-4">
+        <p className="text-sm font-semibold opacity-60">💕 Memory</p>
+        <p className="mt-1">{firstMetText}</p>
+      </div>
+    )}
+
+    {specialMomentText && (
+      <div className="mt-4">
+        <p className="text-sm font-semibold opacity-60">💖 Special Moment</p>
+        <p className="mt-1">{specialMomentText}</p>
+      </div>
+    )}
+  </div>
+)}
+{loveDate && (
+  <div className="mt-6 rounded-2xl bg-white/70 px-5 py-4 shadow-sm">
+    <p className="text-sm font-medium opacity-70">
+      Our special journey ❤️
+    </p>
+    <p className="mt-1 text-2xl font-bold">
+      {Math.max(
+        0,
+        Math.floor(
+          (new Date().getTime() - new Date(loveDate).getTime()) /
+            (1000 * 60 * 60 * 24)
+        )
+      )}{" "}
+      days together 💕
+    </p>
+  </div>
+)}
               <div className="mx-auto mt-8 max-w-2xl rounded-3xl bg-white/70 p-7">
                 <p className="whitespace-pre-wrap text-lg leading-8 text-[#5f5356] sm:text-xl">
                   {message}
                 </p>
               </div>
+              {secretMessage && (
+  <details className="mt-8 rounded-3xl bg-white/60 p-6 text-left shadow-sm">
+    <summary className="cursor-pointer list-none text-center text-lg font-bold">
+      🤫 Tap to reveal a secret message ❤️
+    </summary>
 
-              <PhotoSlideshow photos={photos} />
+    <div className="mt-5 rounded-2xl bg-[#fff0f3] p-5 text-center">
+      <p className="text-lg font-medium">
+        {secretMessage}
+      </p>
+    </div>
+  </details>
+)}
+{(quizQ1 || quizQ2 || quizQ3) && (
+  <LoveQuiz
+    questions={[
+      { question: quizQ1, answer: quizA1 },
+      { question: quizQ2, answer: quizA2 },
+      { question: quizQ3, answer: quizA3 },
+    ]}
+  />
+)}
+<PhotoSlideshow photos={photos} />
+
+<p className="mt-10 text-lg font-semibold">
+
+</p>
 
               <p className="mt-10 text-lg font-semibold">
                 With love,
