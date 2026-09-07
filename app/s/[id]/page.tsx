@@ -67,8 +67,11 @@ const shareUrl = `https://gitu-love.vercel.app/s/${id}`;
 
               <p className="mt-7 text-sm font-medium uppercase tracking-[0.2em] text-[#e85d75]">
                 A little surprise for you
+               
               </p>
-
+ <div className="mt-6 text-3xl animate-pulse">
+  💖 💕 💗 💕 💖
+</div>
               <details className="mt-8">
   <summary className="mx-auto w-fit cursor-pointer rounded-full bg-[#241b1d] px-7 py-4 font-semibold text-white shadow-lg transition hover:scale-105 hover:bg-[#e85d75]">
     Open your surprise ❤️
