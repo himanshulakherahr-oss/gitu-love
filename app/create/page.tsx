@@ -6,6 +6,7 @@ export default function CreatePage() {
   const [name, setName] = useState("");
   const [from, setFrom] = useState("");
   const [message, setMessage] = useState("");
+  const [theme, setTheme] = useState("romantic");
   const [photos, setPhotos] = useState<string[]>([]);
   const [photoFiles, setPhotoFiles] = useState<File[]>([]);
   const [step, setStep] = useState(1);
@@ -134,7 +135,22 @@ export default function CreatePage() {
                 rows={7}
                 className="mt-10 w-full resize-none rounded-2xl border border-black/10 bg-[#fffaf7] px-5 py-4 outline-none focus:border-[#e85d75]"
               />
+<div className="mt-6">
+  <label className="mb-3 block text-sm font-semibold">
+    Choose a theme ❤️
+  </label>
 
+  <select
+    value={theme}
+    onChange={(e) => setTheme(e.target.value)}
+    className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 outline-none"
+  >
+    <option value="romantic">💕 Romantic Pink</option>
+    <option value="dark">🌙 Dark Love</option>
+    <option value="rose">🌹 Rose</option>
+    <option value="elegant">✨ Elegant</option>
+  </select>
+</div>
               <div className="mt-6 flex gap-3">
                 <button
                   onClick={() => setStep(1)}
@@ -319,6 +335,7 @@ export default function CreatePage() {
       from_name: from,
       message,
       photos: photoUrls,
+      theme,
     });
 
   if (error) {

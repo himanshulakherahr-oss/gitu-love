@@ -29,7 +29,21 @@ export default async function SurprisePage({
   const from = surprise.from_name;
   const message = surprise.message;
   const photos = surprise.photos || [];
-  const shareUrl = `https://gitu-love.vercel.app/s/${id}`;
+  
+
+const theme = String(surprise.theme || "romantic");
+
+let themeStyles = "from-[#fff0f3] to-[#fff3e8] text-[#241b1d]";
+
+if (theme === "dark") {
+  themeStyles = "from-[#1f1720] to-[#3b2433] text-white";
+} else if (theme === "rose") {
+  themeStyles = "from-[#ffe4e6] to-[#fecdd3] text-[#4a1d25]";
+} else if (theme === "elegant") {
+  themeStyles = "from-[#f5f5f4] to-[#e7e5e4] text-[#292524]";
+}
+  
+const shareUrl = `https://gitu-love.vercel.app/s/${id}`;
   return (
     <main className="min-h-screen bg-[#fffaf7] text-[#241b1d]">
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
@@ -41,9 +55,11 @@ export default async function SurprisePage({
 </div>
       <section className="flex min-h-screen items-center justify-center px-6 py-12">
         <div className="w-full max-w-3xl">
-          <div className="suprise-cardrounded-[40px] bg-white p-5 shadow-2xl sm:p-8"
+          <div className="suprise-card rounded-[40px] bg-white p-5 shadow-2xl sm:p-8"
 >
-            <div className="rounded-[32px] bg-gradient-to-br from-[#fff0f3] to-[#fff3e8] px-6 py-12 text-center sm:px-12">
+            <div
+  className={`rounded-[32px] bg-gradient-to-br px-6 py-12 text-center sm:px-12 ${themeStyles}`}
+>
 
               <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-white text-5xl shadow-md">
                 💌
